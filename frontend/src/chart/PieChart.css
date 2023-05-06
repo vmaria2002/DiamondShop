@@ -1,0 +1,7 @@
+.chart {
+     box-sizing: border-box;
+     display: block;
+     height: 360px;
+     width: 420px;
+     margin-left:10cm;
+}

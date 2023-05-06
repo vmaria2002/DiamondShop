@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javax.validation.api" type="repository">
+    <properties maven-id="javax.validation:validation-api:1.0.CR5" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.0.CR5/validation-api-1.0.CR5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

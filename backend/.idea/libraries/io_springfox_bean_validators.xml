@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="io.springfox.bean.validators" type="repository">
+    <properties maven-id="io.springfox:springfox-bean-validators:3.0.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-bean-validators/3.0.0/springfox-bean-validators-3.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/plugin/spring-plugin-core/2.0.0.RELEASE/spring-plugin-core-2.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.0.RELEASE/spring-beans-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.2.0.RELEASE/spring-core-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.2.0.RELEASE/spring-jcl-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.0.RELEASE/spring-context-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/5.2.0.RELEASE/spring-expression-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.0.RELEASE/spring-aop-5.2.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/plugin/spring-plugin-metadata/2.0.0.RELEASE/spring-plugin-metadata-2.0.0.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-spring-web/3.0.0/springfox-spring-web-3.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-spi/3.0.0/springfox-spi-3.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-schema/3.0.0/springfox-schema-3.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-core/3.0.0/springfox-core-3.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.10.11/byte-buddy-1.10.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/github/classgraph/classgraph/4.8.83/classgraph-4.8.83.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
