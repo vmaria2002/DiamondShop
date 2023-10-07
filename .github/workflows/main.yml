@@ -1,51 +1,31 @@
-- name: jacoco-badge-generator
-  # You may pin to the exact commit or the version.
-  # uses: cicirello/jacoco-badge-generator@f33476a5a3fd5a4f77cb5eef2ebe728c1dd5b921
-  uses: cicirello/jacoco-badge-generator@v2.11.0
-  with:
-    # Full path, relative to the root of the repository, to the jacoco csv file(s), including filename(s)
-    jacoco-csv-file: # optional, default is target/site/jacoco/jacoco.csv
-    # The directory for storing badges, relative to the root of the repository.
-    badges-directory: # optional, default is .github/badges
-    # The filename of the coverage badge.
-    coverage-badge-filename: # optional, default is jacoco.svg
-    # The filename of the branches coverage badge.
-    branches-badge-filename: # optional, default is branches.svg
-    # Controls whether or not to generate the coverage badge.
-    generate-coverage-badge: # optional, default is true
-    # Controls whether or not to generate the branches coverage badge.
-    generate-branches-badge: # optional
-    # Text for the left-side of the coverage badge.
-    coverage-label: # optional, default is coverage
-    # Text for the left-side of the branches coverage badge.
-    branches-label: # optional, default is branches
-    # Controls what happens if one or more jacoco.csv files do not exist.
-    on-missing-report: # optional, default is fail
-    # Enables failing workflow run when coverage below specified threshold.
-    fail-if-coverage-less-than: # optional, default is 0
-    # Enables failing workflow run when branches coverage below specified threshold.
-    fail-if-branches-less-than: # optional, default is 0
-    # Enables failing workflow if coverage is less than it was on previous run.
-    fail-on-coverage-decrease: # optional
-    # Enables failing workflow if branches coverage is less than it was on previous run.
-    fail-on-branches-decrease: # optional
-    # List of coverage percentages as cutoffs for each color.
-    intervals: # optional, default is 100 90 80 70 60 0
-    # List of colors to use ordered by coverage interval, best coverage to worst.
-    colors: # optional, default is #4c1 #97ca00 #a4a61d #dfb317 #fe7d37 #e05d44
-    # Controls whether or not to generate the coverage JSON endpoint.
-    generate-coverage-endpoint: # optional
-    # Controls whether or not to generate the branches coverage JSON endpoint.
-    generate-branches-endpoint: # optional
-    # The filename of the coverage JSON endpoint.
-    coverage-endpoint-filename: # optional, default is jacoco.json
-    # The filename of the branches coverage JSON endpoint.
-    branches-endpoint-filename: # optional, default is branches.json
-    # Controls whether or not to generate a JSON file containing the coverage percentages as floating-point values.
-    generate-summary: # optional
-    # The filename of the summary file.
-    summary-filename: # optional, default is coverage-summary.json
-    # Controls whether or not to append summary to the GitHub workflow summary page.
-    generate-workflow-summary: # optional, default is true
-    # The heading for the GitHub workflow job summary
-    workflow-summary-heading: # optional, default is JaCoCo Test Coverage Summary
+name: Measure coverage
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Run Coverage
+        run: |
+          chmod +x gradlew
+          ./gradlew testCoverage
+
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.6.1
+        with:
+          paths: |
+            ${{ github.workspace }}/**/build/reports/jacoco/prodNormalDebugCoverage/prodNormalDebugCoverage.xml,
+            ${{ github.workspace }}/**/build/reports/jacoco/**/debugCoverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 40
+          min-coverage-changed-files: 60
